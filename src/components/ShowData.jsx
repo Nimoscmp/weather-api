@@ -1,11 +1,6 @@
-import { useState } from "react";
-
-
 const ShowData = ({answer}) => {
-
-    const [statecod, setStateCod] = useState(false)
     
-    const {name, main, weather, wind, cod} = answer;
+    const {name, main, weather, wind} = answer;
     
     if(!name) return(
         <aside className="col-11 col-md-5 p-2"></aside>
@@ -14,7 +9,6 @@ const ShowData = ({answer}) => {
     return (  
         <>
             <aside className="col-11 col-md-5 p-2">
-                
                     <div className="m-0 p-0 row rounded border" id="card">
                         <h3 className="m-0 p-2">
                             {name}
@@ -30,8 +24,6 @@ const ShowData = ({answer}) => {
                             <span className="col-6 text-secondary p-0 px-1">Viento <h5 className="ps-2">{(wind.speed * 3.6).toFixed(1)} km/h</h5></span>
                         </div>
                     </div>
-                
-                
             </aside>
         </>
     );

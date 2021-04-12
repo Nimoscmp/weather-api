@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Error from './components/Error';
 import Header from './components/Header';
 import SetPlace from './components/SetPlace';
 import ShowData from './components/ShowData';
@@ -11,16 +12,23 @@ function App() {
     country: ''
   });
 
-  const [submitting, setSubmit] = useState(false);
-
   const [answer, setAnswer] = useState({});
-
+  const [submitting, setSubmit] = useState(false);
   const [waiting, setWaiting] = useState(true);
+  const [error, setError] = useState(false);
 
   //Destructuring object
   const {city, country} = explore;
 
   useEffect(() => {
+
+    const checkError = () => {
+      if(answer.cod === "404"){
+        setError(true);
+      } else {
+        setError(false);
+      }
+    }
 
     const searchAPI = async() => {
       const base_url = 'http://api.openweathermap.org/data/2.5/weather?q=';
@@ -32,18 +40,29 @@ function App() {
       const result = await response.json();
 
       setWaiting(false);
-      setAnswer(result);
+      setAnswer(result, checkError());
 
       setSubmit(false);
+      checkError();
     }
 
     if(submitting){
       setWaiting(true);
       searchAPI();
-      
+
     }
 
-  }, [submitting])
+  }, [submitting, city, country, answer.cod])
+
+  let component;
+
+  
+
+  if(error){
+    component = <Error/>
+  } else {
+    component = <ShowData answer={answer}/>
+  }
 
   return (
     <>
@@ -59,9 +78,7 @@ function App() {
           submitting={submitting}
           waiting={waiting}
         />
-        <ShowData
-          answer={answer}
-        />
+        {component}
       </main>      
     </>
   );
