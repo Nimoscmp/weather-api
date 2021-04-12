@@ -1,26 +1,27 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
+import CountriesAPI from './CountriesAPI';
 import PropTypes from 'prop-types';
 
-const SetPlace = ({saveExplore, setSubmit, submitting, waiting}) => {
+const SetPlace = ({saveExplore, setSubmit, submitting, waiting, setDataLoaded}) => {
 
     //Array of countries
-    const countries = [
-        {name: 'Argentina', code: 'AR'},
-        {name: 'Bolivia', code: 'BO'},
-        {name: 'Brasil', code: 'BR'},
-        {name: 'Colombia', code: 'CO'},
-        {name: 'Chile', code: 'CL'},
-        {name: 'Ecuador', code: 'EC'},
-        {name: 'Paraguay', code: 'PY'},
-        {name: 'Perú', code: 'PE'},
-        {name: 'Uruguay', code: 'UY'},
-        {name: 'Venezuela', code: 'VE'}
-    ]
+    // const countries = [
+    //     {name: 'Argentina', code: 'AR'},
+    //     {name: 'Bolivia', code: 'BO'},
+    //     {name: 'Brasil', code: 'BR'},
+    //     {name: 'Colombia', code: 'CO'},
+    //     {name: 'Chile', code: 'CL'},
+    //     {name: 'Ecuador', code: 'EC'},
+    //     {name: 'Paraguay', code: 'PY'},
+    //     {name: 'Perú', code: 'PE'},
+    //     {name: 'Uruguay', code: 'UY'},
+    //     {name: 'Venezuela', code: 'VE'}
+    // ]
 
-    countries.map(item => (
-        item.id = nanoid()
-    ))
+    // countries.map(item => (
+    //     item.id = nanoid()
+    // ))
 
     //Declare useState for search and error
     const [search, saveSearch] = useState({
@@ -81,14 +82,9 @@ const SetPlace = ({saveExplore, setSubmit, submitting, waiting}) => {
                             onChange={handleChange}
                             value={country}>
                             <option value="">Elige un país</option>
-                            {
-                                countries.map(item => (
-                                    <option 
-                                        key={item.id}
-                                        value={item.code}
-                                    >{item.name}</option>
-                                ))
-                            }    
+                            <CountriesAPI
+                                setDataLoaded={setDataLoaded}
+                            />                             
                         </select>
                     </div>
 

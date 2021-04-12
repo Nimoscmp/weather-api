@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Error from './components/Error';
 import Header from './components/Header';
+import Preload from './components/Preload';
 import SetPlace from './components/SetPlace';
 import ShowData from './components/ShowData';
 
@@ -16,9 +17,16 @@ function App() {
   const [submitting, setSubmit] = useState(false);
   const [waiting, setWaiting] = useState(true);
   const [error, setError] = useState(false);
+  const [windowloaded, setWindowLoaded] = useState(false);
+  const [dataloaded, setDataLoaded] = useState(false);
 
   //Destructuring object
   const {city, country} = explore;
+
+  //Window loaded
+  window.addEventListener('load', () => {
+    setWindowLoaded(true);
+  });
 
   useEffect(() => {
 
@@ -66,6 +74,11 @@ function App() {
 
   return (
     <>
+      <Preload
+        windowloaded={windowloaded}
+        dataloaded={dataloaded}
+      />
+
       <Header
         title="Consulta el clima"
       />
@@ -76,6 +89,7 @@ function App() {
           setSubmit={setSubmit}
           submitting={submitting}
           waiting={waiting}
+          setDataLoaded={setDataLoaded}
         />
         {component}
       </main>      

@@ -1,25 +1,36 @@
-import { useState } from "react";
+import { Fragment } from "react";
+import { useEffect, useState } from "react";
 
+const CountriesAPI = ({setDataLoaded}) => {
 
-const CountriesAPI = () => {
+    const [countriesresp, setCountriesResp] = useState([]);
 
-    const [countriesresp, setCountriesResp] = useState({});
-    const [load, setLoad] = useState(false);
+    useEffect(() => {
+        
+        const searchCountries = async() => {
+            const base_url = 'https://restcountries.eu/rest/v2/all';
+    
+            const response = await fetch(base_url);
+            const result = await response.json();
+    
+            setCountriesResp(result);
+            setDataLoaded(true);
+        }
 
-    const searchCountries = async() => {
-        const base_url = 'https://restcountries.eu/rest/v2/all';
+        searchCountries();
 
-        const response = await fetch(base_url);
-        const result = await response.json();
-
-        setCountriesResp(result);
-        setLoad(true);
-    }
+    }, [])
 
     return ( 
-        <>
-            <button onClick={searchCountries}>Click</button>
-        </>
+        <Fragment>
+            {countriesresp.map(item => (
+                <option
+                    key={item.numericCode}
+                    value={item.alpha2Code}
+                >{item.translations.es ? item.translations.es : item.name}</option>
+            ))}
+        </Fragment>
+        
     );
 }
  
