@@ -4,6 +4,17 @@
   font-family: 'Raleway', sans-serif;
 }
 
+#preload{
+  position: fixed;
+  z-index: 10000;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(168, 168, 168);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 section form div span{
   background-color: rgba(58, 63, 78, 0.301) !important;
   color: rgb(8, 39, 105) !important;
