@@ -67,7 +67,7 @@ function App() {
   return (
     <>
       <Header
-        title="El clima"
+        title="Consulta el clima"
       />
 
       <main className="row py-2 px-0 m-0 d-flex justify-content-evenly">

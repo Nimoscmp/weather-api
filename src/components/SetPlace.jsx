@@ -60,9 +60,9 @@ const SetPlace = ({explore, saveExplore, setSubmit, submitting, waiting}) => {
 
     return (  
         <>
-            <section className="col-11 col-md-5 p-0">
+            <section className="col-11 col-md-5 p-0 rounded bg-light">
                 {error?
-                <div className="m-2 my-1">
+                <div className="mx-0 my-1">
                     <span className="m-2 my-1 text-danger"><small>Los valores no son válidos</small></span>
                 </div>
                 :
@@ -71,7 +71,7 @@ const SetPlace = ({explore, saveExplore, setSubmit, submitting, waiting}) => {
                 <form 
                     className="m-2"
                     onSubmit={validateForm}>
-                    <div className="input-group m-2">
+                    <div className="input-group m-2 mx-0">
                         <span className="input-group-text" id="input-country">País</span>
                         <select 
                             className="form-select"
@@ -91,7 +91,7 @@ const SetPlace = ({explore, saveExplore, setSubmit, submitting, waiting}) => {
                         </select>
                     </div>
 
-                    <div className="input-group m-2">
+                    <div className="input-group m-2 mx-0">
                         <span className="input-group-text" id="input-city">Ciudad</span>
                         <input 
                             type="text"
@@ -104,7 +104,7 @@ const SetPlace = ({explore, saveExplore, setSubmit, submitting, waiting}) => {
                             onChange={handleChange}/>
                     </div>
 
-                    <div className="input-group m-2 d-flex justify-content-end row">
+                    <div className="input-group m-2 mx-0 d-flex justify-content-end row">
                     <button
                         type="submit"
                         className="btn btn-primary my-2 col-6"
