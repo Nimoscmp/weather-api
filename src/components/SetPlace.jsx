@@ -1,19 +1,20 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid'
 
-const SetPlace = ({explore, saveExplore}) => {
+const SetPlace = ({explore, saveExplore, setSubmit, submitting, waiting}) => {
 
     //Array of countries
     const countries = [
-        {name: 'Argelia', code: 'DZ'},
         {name: 'Argentina', code: 'AR'},
+        {name: 'Bolivia', code: 'BO'},
+        {name: 'Brasil', code: 'BR'},
         {name: 'Colombia', code: 'CO'},
-        {name: 'Dinamarca', code: 'DK'},
-        {name: 'India', code: 'IN'},
-        {name: 'Luxemburgo', code: 'LU'},
-        {name: 'Pakistán', code: 'PK'},
-        {name: 'Ruanda', code: 'RW'},
-        {name: 'Sudáfrica', code: 'ZA'}
+        {name: 'Chile', code: 'CL'},
+        {name: 'Ecuador', code: 'EC'},
+        {name: 'Paraguay', code: 'PY'},
+        {name: 'Perú', code: 'PE'},
+        {name: 'Uruguay', code: 'UY'},
+        {name: 'Venezuela', code: 'VE'}
     ]
 
     countries.map(item => (
@@ -35,7 +36,8 @@ const SetPlace = ({explore, saveExplore}) => {
         saveSearch({
             ...search,
             [event.target.name]: event.target.value
-        })
+        });
+        
     }
 
     //Event submit
@@ -47,12 +49,18 @@ const SetPlace = ({explore, saveExplore}) => {
             return;
         }
 
+        //Set error to false after validating
         setError(false);
+        //Send a copy of search state to app.js
+        saveExplore({...search})
+        //Set submit to true after validating
+        setSubmit(true);
     }
+
 
     return (  
         <>
-            <section className="col-12 col-md-6 p-0">
+            <section className="col-11 col-md-5 p-0">
                 {error?
                 <div className="m-2 my-1">
                     <span className="m-2 my-1 text-danger"><small>Los valores no son válidos</small></span>
@@ -69,7 +77,8 @@ const SetPlace = ({explore, saveExplore}) => {
                             className="form-select"
                             name="country" 
                             aria-label="country"
-                            onChange={handleChange}>
+                            onChange={handleChange}
+                            value={country}>
                             <option value="">Elige un país</option>
                             {
                                 countries.map(item => (
@@ -98,8 +107,17 @@ const SetPlace = ({explore, saveExplore}) => {
                     <div className="input-group m-2 d-flex justify-content-end row">
                     <button
                         type="submit"
-                        className="btn btn-primary my-2 col-6"                    
-                    >Agregar</button>
+                        className="btn btn-primary my-2 col-6"
+                        disabled={waiting && submitting ? true : false}                 
+                    >
+                    {(waiting && submitting) ?
+                    <> 
+                        <span className="spinner-border spinner-border-sm mx-1"></span>
+                        <span className="bg-primary text-white">Cargando...</span>
+                    </>
+                    : 
+                        <span className="bg-primary text-white">Consultar</span>}     
+                    </button>
                 </div>
                 </form>
             </section>
