@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const ShowData = ({answer}) => {
     
     const {name, main, weather, wind} = answer;
@@ -29,4 +31,8 @@ const ShowData = ({answer}) => {
     );
 }
  
+ShowData.propTypes = {
+    answer: PropTypes.object.isRequired
+}
+
 export default ShowData;

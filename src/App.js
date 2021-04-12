@@ -72,7 +72,6 @@ function App() {
 
       <main className="row py-2 px-0 m-0 d-flex justify-content-evenly">
         <SetPlace 
-          explore={explore}
           saveExplore={saveExplore}
           setSubmit={setSubmit}
           submitting={submitting}

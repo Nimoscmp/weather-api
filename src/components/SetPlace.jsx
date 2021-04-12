@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { nanoid } from 'nanoid'
+import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
 
-const SetPlace = ({explore, saveExplore, setSubmit, submitting, waiting}) => {
+const SetPlace = ({saveExplore, setSubmit, submitting, waiting}) => {
 
     //Array of countries
     const countries = [
@@ -123,6 +124,13 @@ const SetPlace = ({explore, saveExplore, setSubmit, submitting, waiting}) => {
             </section>
         </>
     );
+}
+
+SetPlace.propTypes = {
+    saveExplore: PropTypes.func.isRequired,
+    setSubmit: PropTypes.func.isRequired,
+    submitting: PropTypes.bool.isRequired,
+    waiting: PropTypes.bool.isRequired
 }
  
 export default SetPlace;
