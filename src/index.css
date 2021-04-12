@@ -1,8 +1,20 @@
-* {
-  box-sizing: content-box !important;
-}
+
 
 section form div span{
   background-color: rgba(58, 63, 78, 0.301) !important;
   color: rgb(8, 39, 105) !important;
+}
+
+aside div h3::after{ 
+    content: "";
+    display: block;
+    width: 70%;
+    height: 2px;
+    background-color: #2370b898;
+    margin: 1rem auto 1rem;
+}
+
+aside #card{
+    -webkit-box-shadow: 0px 2px 5px 1px rgba(53, 53, 53, 0.2);
+            box-shadow: 0px 2px 5px 1px rgba(53, 53, 53, 0.2);
 }
