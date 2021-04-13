@@ -5,24 +5,6 @@ import PropTypes from 'prop-types';
 
 const SetPlace = ({saveExplore, setSubmit, submitting, waiting, setDataLoaded}) => {
 
-    //Array of countries
-    // const countries = [
-    //     {name: 'Argentina', code: 'AR'},
-    //     {name: 'Bolivia', code: 'BO'},
-    //     {name: 'Brasil', code: 'BR'},
-    //     {name: 'Colombia', code: 'CO'},
-    //     {name: 'Chile', code: 'CL'},
-    //     {name: 'Ecuador', code: 'EC'},
-    //     {name: 'Paraguay', code: 'PY'},
-    //     {name: 'Perú', code: 'PE'},
-    //     {name: 'Uruguay', code: 'UY'},
-    //     {name: 'Venezuela', code: 'VE'}
-    // ]
-
-    // countries.map(item => (
-    //     item.id = nanoid()
-    // ))
-
     //Declare useState for search and error
     const [search, saveSearch] = useState({
         city: '',
@@ -104,7 +86,7 @@ const SetPlace = ({saveExplore, setSubmit, submitting, waiting, setDataLoaded}) 
                     <div className="input-group m-2 mx-0 d-flex justify-content-end row">
                     <button
                         type="submit"
-                        className="btn btn-primary my-2 col-6"
+                        className="btn btn-primary my-2 col-12 col-sm-6"
                         disabled={waiting && submitting ? true : false}                 
                     >
                     {(waiting && submitting) ?
