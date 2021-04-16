@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 import CountriesAPI from './CountriesAPI';
 import PropTypes from 'prop-types';
 
-const SetPlace = ({saveExplore, setSubmit, submitting, waiting, setDataLoaded}) => {
+const SetPlace = ({saveExplore, setSubmit, submitting, waiting, setDataLoaded, dataloaded}) => {
 
     //Declare useState for search and error
     const [search, saveSearch] = useState({
@@ -17,9 +17,14 @@ const SetPlace = ({saveExplore, setSubmit, submitting, waiting, setDataLoaded}) 
     const {city, country} = search;
 
     const handleChange = event => {
+
+        const removeAccents = (str) => {
+            return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        } 
+
         saveSearch({
             ...search,
-            [event.target.name]: event.target.value
+            [event.target.name]: removeAccents(event.target.value)
         });
         
     }
@@ -66,6 +71,7 @@ const SetPlace = ({saveExplore, setSubmit, submitting, waiting, setDataLoaded}) 
                             <option value="">Elige un país</option>
                             <CountriesAPI
                                 setDataLoaded={setDataLoaded}
+                                dataloaded={dataloaded}
                             />                             
                         </select>
                     </div>
