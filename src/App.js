@@ -90,6 +90,7 @@ function App() {
           submitting={submitting}
           waiting={waiting}
           setDataLoaded={setDataLoaded}
+          dataloaded={dataloaded}
         />
         {component}
       </main>      
