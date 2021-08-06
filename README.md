@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Weather dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a project where you can explore the weather of the main cities in the world into a dashboard.
 
 ## Available Scripts
 
