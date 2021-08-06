@@ -5,6 +5,10 @@ import Preload from './components/Preload';
 import SetPlace from './components/SetPlace';
 import ShowData from './components/ShowData';
 
+/*::::::::::::::::::::::
+:::::   COMPONENT  :::::
+::::::::::::::::::::::::*/
+
 function App() {
 
   //Usestate for searching, submit and result
