@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 const Header = ({title}) => {
     return (  
         <>
-            <header className="p-2">
+            <header className="col-11 order-1 p-2">
                 <nav>
                     <h1 className="m-1 text-center">{title}</h1>
                 </nav>
@@ -12,8 +12,8 @@ const Header = ({title}) => {
     );
 }
 
-Header.propTypes = {
-    title: PropTypes.string.isRequired
-}
+// Header.propTypes = {
+//     title: PropTypes.string.isRequired
+// }
 
 export default Header;

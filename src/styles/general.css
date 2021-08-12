@@ -1,3 +1,19 @@
 /*::::::::::::::::::::::
 ::::::   GENERAL  ::::::
 ::::::::::::::::::::::::*/
+
+/* Transitions */
+
+.trans-color-400 {
+    transition: color 0.4s ease-in-out;
+}
+
+.trans-300 {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Cursor */
+
+.pointer {
+    cursor: pointer;
+}

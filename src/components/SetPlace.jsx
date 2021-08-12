@@ -1,7 +1,7 @@
 import { useState } from 'react';
 // import { nanoid } from 'nanoid';
 import CountriesAPI from './CountriesAPI';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 const SetPlace = ({saveExplore, setSubmit, submitting, waiting, setDataLoaded, dataloaded}) => {
 
@@ -45,7 +45,6 @@ const SetPlace = ({saveExplore, setSubmit, submitting, waiting, setDataLoaded, d
         //Set submit to true after validating
         setSubmit(true);
     }
-
 
     return (  
         <>
@@ -110,11 +109,11 @@ const SetPlace = ({saveExplore, setSubmit, submitting, waiting, setDataLoaded, d
     );
 }
 
-SetPlace.propTypes = {
-    saveExplore: PropTypes.func.isRequired,
-    setSubmit: PropTypes.func.isRequired,
-    submitting: PropTypes.bool.isRequired,
-    waiting: PropTypes.bool.isRequired
-}
+// SetPlace.propTypes = {
+//     saveExplore: PropTypes.func.isRequired,
+//     setSubmit: PropTypes.func.isRequired,
+//     submitting: PropTypes.bool.isRequired,
+//     waiting: PropTypes.bool.isRequired
+// }
  
 export default SetPlace;

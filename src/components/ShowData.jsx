@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 const ShowData = ({answer}) => {
     
@@ -62,8 +62,8 @@ const ShowData = ({answer}) => {
     );
 }
  
-ShowData.propTypes = {
-    answer: PropTypes.object.isRequired
-}
+// ShowData.propTypes = {
+//     answer: PropTypes.object.isRequired
+// }
 
 export default ShowData;

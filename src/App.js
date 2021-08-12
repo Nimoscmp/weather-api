@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Aside from './components/Aside';
 import Error from './components/Error';
 import Header from './components/Header';
 import Preload from './components/Preload';
@@ -64,8 +65,6 @@ function App() {
 
   let component;
 
-  
-
   if(error){
     component = <Error/>
   } else {
@@ -74,26 +73,36 @@ function App() {
 
   return (
     <>
+    <div className="row m-0 p-0">
       <Preload
         windowloaded={windowloaded}
         dataloaded={dataloaded}
       />
 
-      <Header
-        title="Consulta el clima"
-      />
+      <Aside/>
 
-      <main className="row py-2 px-0 m-0 d-flex justify-content-evenly">
-        <SetPlace 
-          saveExplore={saveExplore}
-          setSubmit={setSubmit}
-          submitting={submitting}
-          waiting={waiting}
-          setDataLoaded={setDataLoaded}
-          dataloaded={dataloaded}
-        />
-        {component}
-      </main>      
+      <div className="col-11 order-2 m-0 p-0">
+        <div className="row m-0 p-0">
+          <Header
+            title="Consulta el clima"
+          />
+
+          <main className="col-11 order-2 py-2 px-0 m-0 d-flex justify-content-evenly">
+            <div className="row w-100 m-0 p-1">
+              <SetPlace 
+                saveExplore={saveExplore}
+                setSubmit={setSubmit}
+                submitting={submitting}
+                waiting={waiting}
+                setDataLoaded={setDataLoaded}
+                dataloaded={dataloaded}
+              />
+              {component}
+            </div>
+          </main>      
+        </div>
+      </div>
+    </div>
     </>
   );
 }
