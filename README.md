@@ -1,6 +1,6 @@
 # Weather dashboard
 
-This is a project where you can explore the weather of the main cities in the world into a dashboard.
+First of all, this is a project where you can explore the weather of the main cities in the world into a dashboard.
 
 ## Available Scripts
 
